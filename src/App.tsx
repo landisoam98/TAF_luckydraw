@@ -256,46 +256,46 @@ function App() {
   }, [selectedNumbers.length, totalPages, currentPage]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 p-8">
+    <div className="h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 p-4 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">
             Lucky Number Slot Machine
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Add your numbers, spin the wheel, and let luck decide!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4 h-[calc(100vh-12rem)]">
           {/* Input Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+          <div className="bg-white rounded-2xl shadow-xl p-6 overflow-y-auto">
+            <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
               <Plus className="w-6 h-6" />
               Add Numbers
             </h2>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Enter number(s) separated by commas"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none text-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none text-base"
                 onKeyPress={(e) => e.key === 'Enter' && addMultipleNumbers()}
               />
               
               <div className="flex gap-2">
                 <button
                   onClick={addNumber}
-                  className="flex-1 bg-[#113768] text-white py-3 px-4 rounded-xl hover:bg-[#1e5a96] transition-colors font-semibold"
+                  className="flex-1 bg-[#113768] text-white py-2 px-3 rounded-xl hover:bg-[#1e5a96] transition-colors font-semibold text-sm"
                 >
                   Add Single
                 </button>
                 <button
                   onClick={addMultipleNumbers}
-                  className="flex-1 bg-blue-600 text-white py-3 px-4 rounded-xl hover:bg-blue-700 transition-colors font-semibold"
+                  className="flex-1 bg-blue-600 text-white py-2 px-3 rounded-xl hover:bg-blue-700 transition-colors font-semibold text-sm"
                 >
                   Add Multiple
                 </button>
@@ -304,13 +304,13 @@ function App() {
               <div className="flex gap-2">
                 <button
                   onClick={addRange1to1000}
-                  className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-4 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-colors font-semibold"
+                  className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2 px-3 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-colors font-semibold text-sm"
                 >
                   Add 1-1000
                 </button>
                 <button
                   onClick={clearAllNumbers}
-                  className="flex-1 bg-red-500 text-white py-3 px-4 rounded-xl hover:bg-red-600 transition-colors font-semibold flex items-center justify-center gap-2"
+                  className="flex-1 bg-red-500 text-white py-2 px-3 rounded-xl hover:bg-red-600 transition-colors font-semibold flex items-center justify-center gap-2 text-sm"
                 >
                   <Trash2 className="w-4 h-4" />
                   Clear All
@@ -330,7 +330,7 @@ function App() {
                     />
                     <label
                       htmlFor="excel-import"
-                      className="w-full bg-purple-600 text-white py-3 px-4 rounded-xl hover:bg-purple-700 transition-colors font-semibold flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-purple-600 text-white py-2 px-3 rounded-xl hover:bg-purple-700 transition-colors font-semibold flex items-center justify-center gap-2 cursor-pointer text-sm"
                     >
                       <Upload className="w-4 h-4" />
                       Import Excel/CSV
@@ -338,7 +338,7 @@ function App() {
                   </div>
                   <button
                     onClick={downloadTemplate}
-                    className="bg-indigo-600 text-white py-3 px-4 rounded-xl hover:bg-indigo-700 transition-colors font-semibold flex items-center justify-center gap-2"
+                    className="bg-indigo-600 text-white py-2 px-3 rounded-xl hover:bg-indigo-700 transition-colors font-semibold flex items-center justify-center gap-2"
                     title="Download import template"
                   >
                     <Download className="w-4 h-4" />
@@ -348,19 +348,19 @@ function App() {
             </div>
 
             {/* Available Numbers */}
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold text-gray-700 mb-3">
+            <div className="mt-4">
+              <h3 className="text-base font-semibold text-gray-700 mb-2">
                 Available Numbers ({numbers.length})
               </h3>
-              <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
+              <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto">
                 {numbers.map((num) => (
                   <span
                     key={num}
-                    className="bg-gradient-to-r from-[#113768] to-[#1e5a96] text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 cursor-pointer hover:from-[#1e5a96] hover:to-[#2d6bb0] transition-all"
+                    className="bg-gradient-to-r from-[#113768] to-[#1e5a96] text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1 cursor-pointer hover:from-[#1e5a96] hover:to-[#2d6bb0] transition-all"
                     onClick={() => removeNumber(num)}
                   >
                     {num}
-                    <X className="w-3 h-3" />
+                    <X className="w-2 h-2" />
                   </span>
                 ))}
               </div>
@@ -368,7 +368,7 @@ function App() {
           </div>
 
           {/* Slot Machine */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center">
+          <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center">
             <SlotMachine
               numbers={numbers}
               onNumberSelected={handleNumberSelected}
@@ -378,17 +378,17 @@ function App() {
           </div>
 
           {/* Control Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          <div className="bg-white rounded-2xl shadow-xl p-6 overflow-y-auto">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
               Controls
             </h2>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               {/* Single Roll */}
               <button
                 onClick={startRolling}
                 disabled={numbers.length === 0 || isRolling || isAutoRolling}
-                className={`w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-all ${
+                className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-base transition-all ${
                   numbers.length === 0 || isRolling || isAutoRolling
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 shadow-lg hover:shadow-xl transform hover:scale-105'
@@ -399,9 +399,9 @@ function App() {
               </button>
               
               {/* Auto Roll Section */}
-              <div className="border-t pt-4">
-                <h3 className="text-lg font-semibold text-gray-700 mb-3">Auto Roll</h3>
-                <div className="flex gap-2 mb-3">
+              <div className="border-t pt-3">
+                <h3 className="text-base font-semibold text-gray-700 mb-2">Auto Roll</h3>
+                <div className="flex gap-2 mb-2">
                   <input
                     type="number"
                     value={autoRollCount}
@@ -414,13 +414,13 @@ function App() {
                     placeholder="Times"
                     min="1"
                     max={numbers.length}
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm"
                     disabled={isRolling || isAutoRolling || numbers.length === 0}
                   />
                   <button
                     onClick={startAutoRoll}
                     disabled={numbers.length === 0 || isRolling || isAutoRolling || !autoRollCount || parseInt(autoRollCount) > numbers.length}
-                    className={`px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition-all ${
+                    className={`px-3 py-1 rounded-lg font-semibold flex items-center gap-2 transition-all text-sm ${
                       numbers.length === 0 || isRolling || isAutoRolling || !autoRollCount || parseInt(autoRollCount) > numbers.length
                         ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                         : 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-600 hover:to-indigo-600'
@@ -440,14 +440,14 @@ function App() {
               {/* Reset Button - Smaller */}
               <button
                 onClick={handleResetClick}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium text-sm"
+                className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors font-medium text-sm"
               >
                 <RotateCcw className="w-4 h-4" />
                 Reset All
               </button>
             </div>
             
-            <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+            <div className="mt-4 p-3 bg-gray-50 rounded-xl">
               <h3 className="font-semibold text-gray-700 mb-2">Statistics</h3>
               <div className="space-y-1 text-sm text-gray-600">
                 <p>Available: {numbers.length}</p>
@@ -458,21 +458,21 @@ function App() {
           </div>
 
           {/* Results Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          <div className="bg-white rounded-2xl shadow-xl p-6 overflow-y-auto">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
               Lucky Winners
             </h2>
             
             {selectedNumbers.length > 0 ? (
               <>
                 {/* Fixed 10x10 Grid - Extended height to fit all numbers */}
-                <div className="grid grid-cols-10 gap-2 h-96 mb-6">
+                <div className="grid grid-cols-10 gap-1 h-80 mb-4">
                   {Array.from({ length: 100 }, (_, index) => {
                     const num = currentPageNumbers[index];
                     return (
                       <div
                         key={index}
-                        className={`p-1 rounded-lg border-2 text-center flex items-center justify-center min-h-[2.5rem] ${
+                        className={`p-1 rounded-lg border-2 text-center flex items-center justify-center min-h-[2rem] ${
                           num !== undefined
                             ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 hover:shadow-md transition-shadow'
                             : 'bg-gray-50 border-gray-200'
@@ -489,11 +489,11 @@ function App() {
                 </div>
                 
                 {/* Pagination Controls - Always visible */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                <div className="flex items-center justify-between pt-3 border-t border-gray-200">
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold transition-colors text-sm ${
                       currentPage === 1
                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         : 'bg-blue-500 text-white hover:bg-blue-600'
@@ -515,7 +515,7 @@ function App() {
                   <button
                     onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                     disabled={currentPage >= totalPages || totalPages <= 1}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg font-semibold transition-colors text-sm ${
                       currentPage >= totalPages || totalPages <= 1
                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         : 'bg-blue-500 text-white hover:bg-blue-600'
@@ -528,7 +528,7 @@ function App() {
               </>
             ) : (
               <>
-                <div className="text-center h-96 mb-6 flex flex-col items-center justify-center">
+                <div className="text-center h-80 mb-4 flex flex-col items-center justify-center">
                   <div className="text-6xl mb-4">🎰</div>
                   <p className="text-gray-500 text-lg">
                     No numbers selected yet
@@ -539,10 +539,10 @@ function App() {
                 </div>
                 
                 {/* Pagination Controls - Always visible even when empty */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                <div className="flex items-center justify-between pt-3 border-t border-gray-200">
                   <button
                     disabled={true}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed text-sm"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Previous
@@ -559,7 +559,7 @@ function App() {
                   
                   <button
                     disabled={true}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed text-sm"
                   >
                     Next
                     <ChevronRight className="w-4 h-4" />
@@ -569,7 +569,7 @@ function App() {
             )}
             
             {numbers.length === 0 && selectedNumbers.length > 0 && (
-              <div className="mt-6 p-4 bg-yellow-50 rounded-xl border-l-4 border-yellow-500">
+              <div className="mt-4 p-3 bg-yellow-50 rounded-xl border-l-4 border-yellow-500">
                 <p className="text-yellow-800 font-semibold">
                   🎉 All numbers have been selected!
                 </p>
@@ -584,26 +584,26 @@ function App() {
         {/* Reset Confirmation Dialog */}
         {showResetDialog && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Confirm Reset</h3>
-              <p className="text-gray-600 mb-6">
+            <div className="bg-white rounded-2xl p-6 max-w-md w-full mx-4 shadow-2xl">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Confirm Reset</h3>
+              <p className="text-gray-600 mb-4">
                 Are you sure you want to reset everything? This will clear all numbers and selected results.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-3">
                 <button
                   onClick={() => setShowResetDialog(false)}
-                  className="flex-1 px-4 py-3 bg-gray-200 text-gray-800 rounded-xl hover:bg-gray-300 transition-colors font-semibold"
+                  className="flex-1 px-3 py-2 bg-gray-200 text-gray-800 rounded-xl hover:bg-gray-300 transition-colors font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={reset}
-                  className="flex-1 px-4 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors font-semibold"
+                  className="flex-1 px-3 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors font-semibold"
                 >
                   Reset All
                 </button>
               </div>
-              </div>
+            </div>
           </div>
         )}
       </div>
