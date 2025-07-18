@@ -256,10 +256,10 @@ function App() {
   }, [selectedNumbers.length, totalPages, currentPage]);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 p-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
+      <div className="w-full">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center py-12 px-4">
           <h1 className="text-5xl font-bold text-gray-800 mb-2">
             Lucky Number Slot Machine
           </h1>
@@ -268,9 +268,9 @@ function App() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 h-96">
+        <div className="space-y-8 px-4 pb-8">
           {/* Input Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 overflow-y-auto">
+          <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8" style={{ height: '600px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
               <Plus className="w-6 h-6" />
               Add Numbers
@@ -352,7 +352,7 @@ function App() {
               <h3 className="text-lg font-semibold text-gray-700 mb-3">
                 Available Numbers ({numbers.length})
               </h3>
-              <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
+              <div className="flex flex-wrap gap-2" style={{ height: '200px', overflowY: 'auto' }}>
                 {numbers.map((num) => (
                   <span
                     key={num}
@@ -368,7 +368,7 @@ function App() {
           </div>
 
           {/* Slot Machine */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center">
+          <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center" style={{ height: '400px' }}>
             <SlotMachine
               numbers={numbers}
               onNumberSelected={handleNumberSelected}
@@ -378,7 +378,7 @@ function App() {
           </div>
 
           {/* Control Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 overflow-y-auto">
+          <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8" style={{ height: '500px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
               Controls
             </h2>
@@ -458,7 +458,7 @@ function App() {
           </div>
 
           {/* Results Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 overflow-y-auto">
+          <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8" style={{ height: '700px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-6">
               Lucky Winners
             </h2>
@@ -466,7 +466,7 @@ function App() {
             {selectedNumbers.length > 0 ? (
               <>
                 {/* Fixed 10x10 Grid - Extended height to fit all numbers */}
-                <div className="grid grid-cols-10 gap-1 h-96 mb-4">
+                <div className="grid grid-cols-10 gap-1 mb-4" style={{ height: '500px' }}>
                   {Array.from({ length: 100 }, (_, index) => {
                     const num = currentPageNumbers[index];
                     return (
@@ -528,7 +528,7 @@ function App() {
               </>
             ) : (
               <>
-                <div className="text-center h-96 mb-4 flex flex-col items-center justify-center">
+                <div className="text-center mb-4 flex flex-col items-center justify-center" style={{ height: '500px' }}>
                   <div className="text-6xl mb-4">🎰</div>
                   <p className="text-gray-500 text-lg">
                     No numbers selected yet

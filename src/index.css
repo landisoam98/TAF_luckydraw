@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Desktop-optimized fixed layout styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    zoom: 1;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* Prevent zoom-related layout shifts */
+@layer utilities {
+  .fixed-container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    transform: scale(1);
+    transform-origin: center top;
+  }
+  
+  .no-zoom-scale {
+    zoom: 1 !important;
+    -webkit-transform: scale(1) !important;
+    -moz-transform: scale(1) !important;
+    -ms-transform: scale(1) !important;
+    transform: scale(1) !important;
+  }
+  
+  .viewport-fixed {
+    position: relative;
+    width: 100vw;
+    min-width: 1200px;
+  }
+}
